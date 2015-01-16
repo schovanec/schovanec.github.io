@@ -1,1 +1,11 @@
+name: "Steve Chovanec"
+description: "Learning to use Jekyll"
+
+url: "http://localhost:4000"
+
+paginate: 10
+
+permalink: pretty
+pygments: true
+
 exclude: ["Gemfile", "Gemfile.lock"]
