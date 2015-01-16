@@ -7,6 +7,8 @@ feed: "/feed.xml"
 paginate: 10
 
 permalink: pretty
-highlighter: pygments
+
+markdown:			redcarpet
+highlighter: 	pygments
 
 exclude: ["Gemfile", "Gemfile.lock"]
