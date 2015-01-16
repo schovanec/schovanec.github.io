@@ -1,7 +1,8 @@
-name: "Steve Chovanec"
+name: "Steve Chovanec’s Blog"
 description: "Learning to use Jekyll"
 
 url: "http://localhost:4000"
+feed: "/feed.xml"
 
 paginate: 10
 
