@@ -3,4 +3,57 @@
 ---
 @import "variables";
 @import "normalize";
+@import "base";
 @import "typography";
+
+.container {
+	box-sizing: border-box;
+
+	margin-right: auto;
+  margin-left: auto;	
+  padding: 0 ($gutter-size / 2);
+
+  @media (min-width: $screen-sm-min) {
+  	width: $container-sm;
+  }
+
+  @media (min-width: $screen-md-min) {
+  	width: $container-md;
+  }
+
+  @media (min-width: $screen-lg-min) {
+  	with: $container-lg;
+  }
+}
+
+#content {
+	@extend .container;
+}
+
+.site-header {
+	@extend .clearfix;
+
+	padding: ($line-height-computed / 2) 0;
+
+	border-bottom: 1px solid $site-header-border-color;
+
+	hgroup {
+		@extend .container;
+	}
+
+	:hover, :focus { text-decoration: none; }
+
+	h1, ul { margin: 0; }
+
+	h1 { 
+		font-size: $font-size-large;
+		float: left;
+
+	}
+
+	ul {
+		@extend .list-unstyled;
+
+		float: right;
+	}
+}
