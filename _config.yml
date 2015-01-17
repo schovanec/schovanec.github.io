@@ -11,4 +11,10 @@ permalink: pretty
 markdown:			redcarpet
 highlighter: 	pygments
 
+redcarpet:
+    extensions:
+      - smart
+      - no_intra_emphasis
+      - tables
+
 exclude: ["Gemfile", "Gemfile.lock"]

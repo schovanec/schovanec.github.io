@@ -1,0 +1,56 @@
+// colors
+$gray-base: #000;
+$gray-dark: lighten($gray-base, 20%);
+$gray-light: lighten($gray-base, 46.7%);
+$gray-lighter: lighten($gray-base, 93.5%);
+$brand-primary: darken(#428bca, 6.5%);
+
+$body-bg: #fff;
+$text-color: $gray-dark;
+$link-color: $brand-primary;
+$link-hover-color: darken($link-color, 15%);
+
+$hr-border: $gray-lighter;
+
+// fonts
+$font-family-serif: Georgia, Times, 'Times New Roman', serif;
+$font-family-sans-serif: 'Trebuchet MS', 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', Tahoma, sans-serif;
+$font-family-monospace: Menlo, Monaco, Consolas, "Courier New", monospace;
+
+$font-family-base: $font-family-serif;
+$font-size-base: 15px;
+
+$font-size-h1: floor(($font-size-base * 2.6));
+$font-size-h2: floor(($font-size-base * 2.15));
+$font-size-h3: ceil(($font-size-base * 1.7));
+$font-size-h4: ceil(($font-size-base * 1.25));
+$font-size-h5: $font-size-base;
+$font-size-h6: ceil(($font-size-base * 0.85));
+
+$line-height-base: 1.428571429;
+$line-height-computed: floor(($font-size-base * $line-height-base));
+
+// borders
+$border-radius-base: 4px;
+$border-radius-small: 3px;
+
+// headings
+$headings-font-family: $font-family-sans-serif;
+$headings-font-weight: 500;
+$headings-line-height: 1.1;
+$headings-color: inherit;
+$headings-small-color: $gray-light;
+
+// block quotes
+$blockquote-font-size: ($font-size-base * 1.25);
+$blockquote-border-color: $gray-lighter;
+$blockquote-small-color: $gray-light;
+
+// code
+$code-color: #c7254e;
+$code-bg: #f9f2f4;
+$kbd-color: #fff;
+$kbd-bg: #333;
+$pre-color: $gray-dark;
+$pre-bg: #f5f5f5;
+$pre-border-color: #ccc;
