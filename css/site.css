@@ -1,4 +1,14 @@
-body {
+.visible-xs-inline {
+	display: none !important;
+}
+
+@media (max-width: 767px) {
+	.visible-xs-inline {
+		display: inline !important;
+	}
+}
+
+/*body {
 	padding-top: 60px;
 }
 
@@ -8,7 +18,7 @@ h1,h2,h3,h4,h5,h6 {
 
 .content-container {
 	font-family: Georgia, Times, 'Times New Roman', serif;
-}
+}*/
 
 /*
  * GitHub style for Pygments syntax highlighter, for use with Jekyll
