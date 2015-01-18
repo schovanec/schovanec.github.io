@@ -6,10 +6,4 @@
 {% if meta.categories and meta.categories != empty %}
 	<span class="post-tags"><i class="fa fa-tags"></i> {{ meta.categories | join: ", " }}</span>
 {% endif %}
-{% if include.comments == nil or include.comments %}
-	<span class="post-comments">
-		<i class="fa fa-comments"></i> 
-		<a href="{{ meta.url }}#comments">5 comments</a>
-	</span>
-{% endif %}
 </p>

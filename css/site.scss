@@ -7,13 +7,16 @@
 $font-family-sans-serif: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
 
 // font sizes
-$font-size-base: 	17px;
-$font-size-h1:		floor(($font-size-base * 2.6));
-$font-size-h2:		floor(($font-size-base * 2.15));
-$font-size-h3:		ceil(($font-size-base * 1.7));
-$font-size-h4:		ceil(($font-size-base * 1.25));
-$font-size-h5:		$font-size-base;
-$font-size-h6:		ceil(($font-size-base * 0.85));
+$font-size-base: 				15px;
+$font-size-base-large:	17px;
+$font-size-h1:					floor(($font-size-base * 2.6));
+$font-size-h2:					floor(($font-size-base * 2.15));
+$font-size-h3:					ceil(($font-size-base * 1.7));
+$font-size-h4:					ceil(($font-size-base * 1.25));
+$font-size-h5:					$font-size-base;
+$font-size-h6:					ceil(($font-size-base * 0.85));
+
+$font-size-large-ratio: ($font-size-base-large / $font-size-base);
 
 // line heights
 $line-height-base: 			1.428571429;
@@ -36,6 +39,17 @@ h4 { font-size: $font-size-h4; }
 h5 { font-size: $font-size-h5; }
 h6 { font-size: $font-size-h6; }
 
+@media (min-width: 768px) {
+	body { font-size: $font-size-base-large; }
+
+	h1 { font-size: floor($font-size-h1 * $font-size-large-ratio); }
+	h2 { font-size: floor($font-size-h2 * $font-size-large-ratio); }
+	h3 { font-size: ceil($font-size-h3 * $font-size-large-ratio); }
+	h4 { font-size: ceil($font-size-h4 * $font-size-large-ratio); }
+	h5 { font-size: ceil($font-size-h5 * $font-size-large-ratio); }
+	h6 { font-size: ceil($font-size-h6 * $font-size-large-ratio); }
+}
+
 .visible-xs-inline {
 	display: none !important;
 
@@ -53,7 +67,10 @@ h1,h2,h3,h4,h5,h6 {
 
 .post-title, .page-title {
 	font-weight: 700;
-	font-size: floor(($font-size-base * 3.0));
+
+	@media (min-width: 768px) {
+		font-size: floor(($font-size-base-large * 3.0));
+	}
 }
 
 .post-title, .post-meta {
@@ -68,7 +85,13 @@ h1,h2,h3,h4,h5,h6 {
 	hr:first-child { margin-bottom: ($line-height-computed * 2.0); }
 }
 
-.post-date, .post-tags { margin-right: 1em; }
+.post-date, .post-tags { 
+	margin-right: 1em; 
+
+	@media (max-width: 767px) {
+		display: block;
+	}
+}
 
 .post-content img {
 	max-width: 100%;
