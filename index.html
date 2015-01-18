@@ -5,7 +5,8 @@ layout: default
 {% for post in paginator.posts %}
 	<article class="post-container">
 		{% unless forloop.first %}<hr>{% endunless %}
-		{% include post-header.html  meta=post %}
+		<h1 class="post-title"><a href="{{ post.url }}">{{ post.title }}</a></h1>
+		{% include post-metadata.html meta=post %}
 		{{ post.content }}
 	</article>
 {% endfor %}

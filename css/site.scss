@@ -45,8 +45,9 @@ h1,h2,h3,h4,h5,h6 {
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
-.post-title {
-	margin-bottom: 0;
+.post-meta { margin-bottom: ($line-height-computed / 2); }
+
+.post-title, .page-title {
 	font-weight: 700;
 	font-size: floor(($font-size-base * 3.0));
 }
@@ -54,15 +55,17 @@ h1,h2,h3,h4,h5,h6 {
 .post-title, .post-meta {
 	a { color: inherit; }
 	:hover, :focus { text-decoration: none; }
+	+ .post-meta { margin-top: (-$line-height-computed / 2); }
 }
 
-.post-meta { margin-bottom: $line-height-computed; }
-
 .post-container {
-	font-family: Georgia, Times, 'Times New Roman', serif;
 	margin-bottom: ($line-height-computed * 2.0);
 
 	hr:first-child { margin-bottom: ($line-height-computed * 2.0); }
 }
 
 .post-date, .post-tags { margin-right: 1em; }
+
+#content {
+	font-family: Georgia, Times, "Times New Roman", serif;
+}
