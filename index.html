@@ -3,17 +3,18 @@ layout: default
 ---
 
 {% for post in paginator.posts %}
-	<article class="row post-container">
-		<div class="col-md-12">
-			<h1 class="post-title">{{ post.title }}</h1>
-			<p class="text-muted">{{ post.date | date_to_long_string }}</p>
-			<div>
-				{{ post.content }}
-			</div>
-			<p>
-				<a href="{{ post.url }}">Read Post</a>
-			</p>
-		</div>
+	<article class="post-container">
+		{% unless forloop.first %}<hr />{% endunless %}
+		<h1 class="post-title"><a href="{{ post.url }}">{{ post.title }}</a></h1>
+		<p class="text-muted">
+			<span class="post-date">{{ post.date | date: "%B %-d, %Y" }}</span>
+			{% if post.categories != empty %}<span class="post-tags"><i class="fa fa-tags"></i> {{ post.categories | join: ", " }}</span>{% endif %}
+			<span class="post-comments"><i class="fa fa-comments"></i> 5 comments</span>
+		</p>
+		{{ post.content }}
+		<p>
+			<a href="{{ post.url }}">Read Post</a>
+		</p>
 	</article>
 {% endfor %}
 
