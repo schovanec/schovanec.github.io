@@ -48,9 +48,10 @@ h1,h2,h3,h4,h5,h6 {
 	margin-bottom: 0;
 	font-weight: 700;
 	font-size: floor(($font-size-base * 3.0));
+}
 
+.post-title, .post-meta {
 	a { color: inherit; }
-
 	:hover, :focus { text-decoration: none; }
 }
 
@@ -59,32 +60,9 @@ h1,h2,h3,h4,h5,h6 {
 	margin-bottom: ($line-height-computed * 2.0);
 
 	hr:first-child { margin-bottom: ($line-height-computed * 2.0); }
-
-	//+ .post-container { 
-		//.post-title { margin-top: ($line-height-computed * 2.0); }
-
-		//&:before {
-		//	content: "";
-		//	display: block;
-		//	height: 1px;
-		//	background: black;
-		//}
-	//}
 }
 
 .post-date, .post-tags { margin-right: 1em; }
-
-/*body {
-	padding-top: 60px;
-}
-
-h1,h2,h3,h4,h5,h6 {
-	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-}
-
-.content-container {
-	font-family: Georgia, Times, 'Times New Roman', serif;
-}*/
 
 /*
  * GitHub style for Pygments syntax highlighter, for use with Jekyll
