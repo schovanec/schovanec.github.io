@@ -3,15 +3,18 @@ layout: default
 ---
 
 {% for post in paginator.posts %}
-	<div class="row">
+	<article class="row post-container">
 		<div class="col-md-12">
-			<h2>{{ post.title }}</h2>
-			<h4>{{ post.date | date_to_long_string }}</h4>
+			<h1 class="post-title">{{ post.title }}</h1>
+			<p class="text-muted">{{ post.date | date_to_long_string }}</p>
+			<div>
+				{{ post.content }}
+			</div>
 			<p>
 				<a href="{{ post.url }}">Read Post</a>
 			</p>
 		</div>
-	</div>
+	</article>
 {% endfor %}
 
 <div class="row">
