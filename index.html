@@ -14,7 +14,9 @@ layout: default
 <nav>
 	<hr>
 	<ul class="pager">
-			{% if paginator.previous_page %}
+			{% if paginator.previous_page == 1 %}
+				<li class="previous"><a href="/"><i class="fa fa-long-arrow-left"></i> Newer Posts</a></li>
+			{% elsif paginator.previous_page %}
 				<li class="previous"><a href="{{ paginator.previous_page_path }}"><i class="fa fa-long-arrow-left"></i> Newer Posts</a></li>
 			{% endif %}
 			{% if paginator.next_page %}

@@ -5,8 +5,9 @@ url: "http://localhost:4000"
 feed: "/feed.xml"
 
 paginate: 10
+paginate_path: "/page/:num"
 
-permalink: pretty
+permalink: "/archive/:year/:month/:day/:title"
 
 markdown:			redcarpet
 highlighter: 	pygments
