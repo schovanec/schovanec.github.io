@@ -3,7 +3,7 @@ title: Blog Archives
 layout: page
 ---
 {% for post in site.posts %}
-	{% capture current %}{{ post.date | date: "%Y" }}{% endcapture %}
+	{% capture current %}{{ post.date | date: "%B %Y" }}{% endcapture %}
 	{% if current != previous %}
 		{% unless forloop.first %}</ul>{% endunless %}
 		<h3>{{ current }}</h3>
@@ -11,7 +11,6 @@ layout: page
 		{% assign previous = current %}
 	{% endif %}
 	<li>
-		<span class="text-muted">{{ post.date | date: "%B %-d" }} &ndash;</span>
 		<a href="{{ post.url }}">{{ post.title }}</a>
 	</li>
 {% endfor %}
