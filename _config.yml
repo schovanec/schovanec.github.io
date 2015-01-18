@@ -1,5 +1,8 @@
 name: "Steve Chovanec’s Blog"
+author: "Steve Chovanec"
 description: "Learning to use Jekyll"
+
+github_url: "https://github.com/schovanec/schovanec.github.io"
 
 url: "http://localhost:4000"
 feed: "/feed.xml"

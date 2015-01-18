@@ -58,9 +58,20 @@ h6 { font-size: $font-size-h6; }
 	}
 }
 
-
 h1,h2,h3,h4,h5,h6 {
 	font-family: $font-family-sans-serif;
+}
+
+.page-navbar {
+	border-radius: 0;
+	border-width: 0 0 1px;
+}
+
+.page-footer {
+	font-size: $font-size-base;
+	margin-top: ($line-height-computed * 2);
+
+	hr { margin: ($line-height-computed / 2) 0; }
 }
 
 .post-meta { margin-bottom: ($line-height-computed * 0.75); }
