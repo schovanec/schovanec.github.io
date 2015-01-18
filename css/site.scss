@@ -3,6 +3,9 @@
 ---
 @import "syntax";
 
+// fonts
+$font-family-sans-serif: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+
 // font sizes
 $font-size-base: 	17px;
 $font-size-h1:		floor(($font-size-base * 2.6));
@@ -17,6 +20,7 @@ $line-height-base: 			1.428571429;
 $line-height-computed:	floor(($font-size-base * $line-height-base));
 
 body {
+	font-family: $font-family-sans-serif;
 	font-size: $font-size-base;
 	line-height: $line-height-base;
 }
@@ -42,10 +46,10 @@ h6 { font-size: $font-size-h6; }
 
 
 h1,h2,h3,h4,h5,h6 {
-	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-family: $font-family-sans-serif;
 }
 
-.post-meta { margin-bottom: ($line-height-computed / 2); }
+.post-meta { margin-bottom: ($line-height-computed * 0.75); }
 
 .post-title, .page-title {
 	font-weight: 700;
@@ -55,7 +59,7 @@ h1,h2,h3,h4,h5,h6 {
 .post-title, .post-meta {
 	a { color: inherit; }
 	:hover, :focus { text-decoration: none; }
-	+ .post-meta { margin-top: (-$line-height-computed / 2); }
+	+ .post-meta { margin-top: (-$line-height-computed * 0.25); }
 }
 
 .post-container {
@@ -66,6 +70,13 @@ h1,h2,h3,h4,h5,h6 {
 
 .post-date, .post-tags { margin-right: 1em; }
 
+.post-content img {
+	max-width: 100%;
+	height: auto;
+}
+
 #content {
 	font-family: Georgia, Times, "Times New Roman", serif;
 }
+
+#disqus_thread { margin-top: ($line-height-computed * 2); }
