@@ -9,7 +9,10 @@ url: "http://www.stevechovanec.com"
 #archive_url: /archive/
 github_url: "https://github.com/schovanec/schovanec.github.io"
 
+
 google_analytics_id: UA-58832130-1
+
+disqus_shortname: schovanec-blog
 
 paginate: 10
 paginate_path: "/page/:num/"
