@@ -1,0 +1,12 @@
+<nav>
+	<hr>
+	<p class="text-center small">
+	{% if page.previous %}
+		<a href="{{ page.previous.url }}"><i class="fa fa-fw fa-angle-double-left"></i>{{ page.previous.title }}</a> |
+	{% endif %}
+	<a href="/">Blog Home</a>
+	{% if page.next %}
+		| <a href="{{ page.next.url }}">{{ page.next.title }}<i class="fa fa-fw fa-angle-double-right"></i></a>
+	{% endif %}
+	</p>
+</nav>
