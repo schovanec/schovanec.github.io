@@ -3,6 +3,8 @@
 ---
 $(function ($) {
 
+	var LAZY_THRESHOLD = 50;
+
 	// add captions to photos
 	$('.post-content > img[alt], .post-content :not(figure) > img[alt]')
 		.wrap('<figure class="post-img">')
@@ -37,7 +39,8 @@ $(function ($) {
 	// load disqus comment thread if it is present on the page
 	//
 	$('#disqus_thread').each(function () {
-		var $this = $(this);
+		var $this = $(this),
+		    $window = $(window);
 
 		/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
 		window.disqus_identifier = $this.data('post-id');
@@ -45,12 +48,31 @@ $(function ($) {
 		//var disqus_url = '';
 
 		if (disqus_shortname && disqus_identifier) {
-			/* * * DON'T EDIT BELOW THIS LINE * * */
-			(function() {
-				var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-				dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-				(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-			})();
+			if (!checkAndLoad()) {
+				$window.on('scroll.disqusLazy', function () {
+					if (checkAndLoad()) {
+						$window.off('scroll.disqusLazy');
+					}
+				});
+			}
+		}
+
+		function checkAndLoad() {
+			var top = $this.offset().top,
+			    visible = $window.scrollTop() + $window.height();
+
+			if (visible + LAZY_THRESHOLD >= top) {
+				if (!window.DISQUS) {
+					/* * * DON'T EDIT BELOW THIS LINE * * */
+					(function() {
+						var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+						dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+						(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+					})();
+				}
+
+				return true;
+			}
 		}
 	});
 {% endif %}
