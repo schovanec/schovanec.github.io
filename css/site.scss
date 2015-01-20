@@ -73,3 +73,14 @@ body {
 	max-width: 100%;
 	height: auto;
 }
+
+figure.post-img {
+	display: inline-block;
+
+	> figcaption {
+		text-align: center;
+		font-style: italic;
+		font-family: $font-family-sans-serif;
+		font-size: 0.8em;
+	}
+}
