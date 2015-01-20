@@ -1,7 +1,7 @@
 {% assign meta = include.meta %}
 <p class="post-meta text-muted">
 {% if meta.date %}
-	<span class="post-date">{{ meta.date | date: "%B %-d, %Y" }}</span>
+	<span class="post-date"><time datetime="{{ meta.date | date: "%Y-%m-%d" }}T00:00:00+00:00" itemprop="datePublished">{{ meta.date | date: "%B %-d, %Y" }}</time></span>
 {% endif %}
 {% if meta.categories and meta.categories != empty %}
 	<span class="post-tags"><i class="fa fa-tags"></i> {{ meta.categories | join: ", " }}</span>
