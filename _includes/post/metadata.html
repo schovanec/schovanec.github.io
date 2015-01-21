@@ -6,7 +6,7 @@
 {% if meta.categories and meta.categories != empty %}
 	<span class="post-tags"><i class="fa fa-tags"></i> {{ meta.categories | join: ", " }}</span>
 {% endif %}
-{% if include.comments == nil or include.comments %}
+{% if meta.comments %}
 	<span class="post-comments hidden-xs">
 		<i class="fa fa-comments"></i> 
 		<a href="{{ meta.url }}#disqus_thread" data-disqus-identifier="{{ meta.id }}" class="text-lowercase">comments</a>

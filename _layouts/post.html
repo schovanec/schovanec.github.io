@@ -12,4 +12,6 @@ disqus: true
 
 {% include post/pager.html %}
 
+{% if page.comments %}
 {% include post/comments.html %}
+{% endif %}
