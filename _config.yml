@@ -32,4 +32,13 @@ redcarpet:
 gems:
   - jekyll-sitemap
 
+# front-matter defaults
+defaults:
+  -
+    scope:
+      path: ""
+      type: "posts"
+    values:
+      comments: true
+
 exclude: ["Gemfile", "Gemfile.lock"]
