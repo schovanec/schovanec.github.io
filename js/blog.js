@@ -1,9 +1,9 @@
 $(function ($) {
 
-	$('.post-content > img[title], .post-content :not(figure) > img[title]')
+	$('.post-content > img[alt], .post-content :not(figure) > img[alt]')
 		.wrap('<figure class="post-img">')
 		.each(function () {
-			var title = $(this).attr('title');
+			var title = $(this).attr('alt');
 			$('<figcaption>')
 				.text(title)
 				.insertAfter(this);
