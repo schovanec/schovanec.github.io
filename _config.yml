@@ -2,15 +2,17 @@ name: "Steve Chovanec’s Blog"
 author: "Steve Chovanec"
 #description: "Learning to use Jekyll"
 
+url: "http://localhost:4000"
+
+#feed_url: "/atom.xml"
+#about_url: /about/
+#archive_url: /archive/
 github_url: "https://github.com/schovanec/schovanec.github.io"
 
-url: "http://localhost:4000"
-feed: "/atom.xml"
-
 paginate: 10
-paginate_path: "/page/:num"
+paginate_path: "/page/:num/"
 
-permalink: "/archive/:year/:month/:day/:title"
+permalink: "/archive/:year/:month/:day/:title/"
 
 markdown:     redcarpet
 highlighter:  pygments
