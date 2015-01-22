@@ -25,4 +25,7 @@ redcarpet:
     - footnotes
     - disable_indented_code_blocks
 
+gems:
+  - jekyll-sitemap
+
 exclude: ["Gemfile", "Gemfile.lock"]
