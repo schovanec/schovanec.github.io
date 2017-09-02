@@ -16,7 +16,7 @@ paginate_path: "/page/:num/"
 
 permalink: "/archive/:year/:month/:day/:title/"
 
-markdown:     redcarpet
+#markdown:     redcarpet
 highlighter:  rouge
 
 redcarpet:
