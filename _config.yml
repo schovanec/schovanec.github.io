@@ -16,16 +16,7 @@ paginate_path: "/page/:num/"
 
 permalink: "/archive/:year/:month/:day/:title/"
 
-#markdown:     redcarpet
 highlighter:  rouge
-
-redcarpet:
-  extensions:
-    - smart
-    - tables
-    - no_intra_emphasis
-    - footnotes
-    - disable_indented_code_blocks
 
 gems:
   - jekyll-sitemap
