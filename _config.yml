@@ -22,3 +22,5 @@ gems:
   - jekyll-sitemap
 
 exclude: ["Gemfile", "Gemfile.lock"]
+
+repository: schovanec/schovanec.github.io
