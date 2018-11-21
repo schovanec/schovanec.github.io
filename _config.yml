@@ -1,4 +1,4 @@
-name: "Steve Chovanec’s Blog"
+title: "Steve Chovanec’s Blog"
 author: "Steve Chovanec"
 #description: "Learning to use Jekyll"
 
@@ -18,7 +18,7 @@ permalink: "/archive/:year/:month/:day/:title/"
 
 highlighter:  rouge
 
-gems:
+plugins:
   - jekyll-sitemap
 
 exclude: ["Gemfile", "Gemfile.lock"]
