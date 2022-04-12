@@ -16,11 +16,14 @@ paginate_path: "/page/:num/"
 
 permalink: "/archive/:year/:month/:day/:title/"
 
-highlighter:  rouge
+highlighter: rouge
 
 plugins:
   - jekyll-sitemap
 
-exclude: ["Gemfile", "Gemfile.lock"]
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - vendor/
 
 repository: schovanec/schovanec.github.io
