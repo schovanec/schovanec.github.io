@@ -5,8 +5,14 @@
   "repository": "https://github.com/schovanec/schovanec.github.io.git",
   "author": "Steve Chovanec <git@stevechovanec.com>",
   "license": "MIT",
+  "scripts": {
+    "start": "webpack --mode=development --watch",
+    "build": "webpack --mode=production"
+  },
   "devDependencies": {
     "prettier": "^2.6.2",
-    "prettier-plugin-go-template": "^0.0.12"
+    "prettier-plugin-go-template": "^0.0.12",
+    "webpack": "^5.72.0",
+    "webpack-cli": "^4.9.2"
   }
 }
