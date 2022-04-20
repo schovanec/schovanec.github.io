@@ -5,11 +5,18 @@
   "repository": "https://github.com/schovanec/schovanec.github.io.git",
   "author": "Steve Chovanec <git@stevechovanec.com>",
   "license": "MIT",
+  "private": true,
+  "browserslist": "> 1%",
   "scripts": {
     "start": "webpack --mode=development --watch",
     "build": "webpack --mode=production"
   },
   "devDependencies": {
+    "@babel/core": "^7.17.9",
+    "@babel/plugin-transform-regenerator": "^7.17.9",
+    "@babel/preset-env": "^7.16.11",
+    "babel-loader": "^8.2.5",
+    "core-js": "^3.22.1",
     "prettier": "^2.6.2",
     "prettier-plugin-go-template": "^0.0.12",
     "webpack": "^5.72.0",
