@@ -8,8 +8,12 @@
   "private": true,
   "browserslist": "> 1%",
   "scripts": {
-    "start": "webpack --mode=development --watch",
-    "build": "webpack --mode=production"
+    "start": "run-p start:*",
+    "start:hugo": "hugo server -D",
+    "start:webpack": "webpack --mode=development --watch",
+    "build": "run-s build:webpack build:hugo",
+    "build:hugo": "hugo",
+    "build:webpack": "webpack --mode=production"
   },
   "devDependencies": {
     "@babel/core": "^7.17.9",
