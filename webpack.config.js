@@ -2,16 +2,19 @@ const path = require("path");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const { WebpackManifestPlugin } = require("webpack-manifest-plugin");
 
+const SRC_ROOT = path.resolve(__dirname, "src");
+const HUGO_ROOT = path.resolve(__dirname, "hugo");
+
 module.exports = {
   devtool: "source-map",
   entry: {
     app: [
-      path.resolve("src", "js", "app.js"),
-      path.resolve("src", "styles", "app.scss"),
+      path.resolve(SRC_ROOT, "js", "app.js"),
+      path.resolve(SRC_ROOT, "styles", "app.scss"),
     ],
   },
   output: {
-    path: path.resolve("static", "assets"),
+    path: path.resolve(HUGO_ROOT, "static/assets"),
     filename: "[name].[contenthash].js",
     publicPath: "/assets/",
     clean: true,
@@ -43,7 +46,7 @@ module.exports = {
       filename: "[name].[contenthash].css",
     }),
     new WebpackManifestPlugin({
-      fileName: path.resolve(__dirname, "data/manifest.json"),
+      fileName: path.resolve(HUGO_ROOT, "data/manifest.json"),
     }),
   ],
 };

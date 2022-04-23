@@ -9,7 +9,7 @@
   "browserslist": "> 1%",
   "scripts": {
     "start": "run-p start:*",
-    "start:hugo": "hugo server -D",
+    "start:hugo": "hugo server -D --source hugo",
     "start:webpack": "webpack --mode=development --watch",
     "build": "run-s build:webpack build:hugo",
     "build:hugo": "hugo",

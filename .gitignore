@@ -1,21 +1,7 @@
 
-# Created by https://www.toptal.com/developers/gitignore/api/hugo,node,yarn
-# Edit at https://www.toptal.com/developers/gitignore?templates=hugo,node,yarn
 
-### Hugo ###
-# Generated files by hugo
-/public/
-/resources/_gen/
-/assets/jsconfig.json
-hugo_stats.json
-
-# Executable may be added to repository
-hugo.exe
-hugo.darwin
-hugo.linux
-
-# Temporary lock file while building
-/.hugo_build.lock
+# Created by https://www.toptal.com/developers/gitignore/api/node,yarn
+# Edit at https://www.toptal.com/developers/gitignore?templates=node,yarn
 
 ### Node ###
 # Logs
@@ -169,12 +155,9 @@ dist
 
 # if you are NOT using Zero-installs, then:
 # comment the following lines
-#!.yarn/cache
+!.yarn/cache
 
 # and uncomment the following lines
-.pnp.*
+# .pnp.*
 
-# End of https://www.toptal.com/developers/gitignore/api/hugo,node,yarn
-
-static/assets
-data/manifest.json
+# End of https://www.toptal.com/developers/gitignore/api/node,yarn
