@@ -1,54 +1,110 @@
+$default-image-height: 200px;
+
 .photo-gallery {
   $self: &;
 
-  --target-height: 200px;
-
-  @media only screen and (max-width: 800px) {
-    --target-height: 150px;
-  }
-
-  @media only screen and (max-width: 640px) {
-    --target-height: 100px;
-  }
-
   display: flex;
   flex-wrap: wrap;
-  margin: 2px;
 
   &__item {
-    --item-width: 1;
-    --item-height: 1;
-    --item-aspect: calc(var(--item-width) / var(--item-height));
-
-    flex-basis: calc(var(--item-aspect) * var(--target-height));
-    flex-grow: var(--item-aspect);
-    overflow: hidden;
-
     margin: 2px;
-    position: relative;
-
-    &::before {
-      display: block;
-      content: "";
-      padding-bottom: calc(100% / var(--item-aspect));
-    }
   }
 
   &__img {
-    position: absolute;
-    top: 0;
-    width: 100%;
+    height: $default-image-height;
+    vertical-align: bottom;
+  }
 
-    transition: transform 0.15s ease;
+  @supports (width: var(--dummy)) {
+    --target-height: #{$default-image-height};
 
-    #{ $self }__item:hover & {
-      transform: scale(1.1);
+    @media only screen and (max-width: 800px) {
+      --target-height: #{0.75 * $default-image-height};
+    }
+
+    @media only screen and (max-width: 640px) {
+      --target-height: #{0.5 * $default-image-height};
+    }
+
+    gap: 4px;
+
+    &__item {
+      --item-aspect: 1;
+
+      flex-basis: calc(var(--item-aspect) * var(--target-height));
+      flex-grow: var(--item-aspect);
+      overflow: hidden;
+      position: relative;
+
+      @supports (gap: 0) {
+        margin: 0;
+      }
+
+      &::before {
+        display: block;
+        content: "";
+        padding-bottom: calc(100% / var(--item-aspect));
+      }
+    }
+
+    &__img {
+      position: absolute;
+      top: 0;
+      width: 100%;
+      height: auto;
+
+      transition: transform 0.15s ease;
+
+      #{ $self }__item:hover & {
+        transform: scale(1.1);
+      }
+    }
+
+    &::after {
+      content: "";
+      flex-grow: 1e5;
+      min-width: 20%;
     }
   }
 
-  &::after {
-    content: "";
-    flex-grow: 1e5;
-    min-width: 20%;
+  &__lightbox-caption {
+    display: none;
+  }
+
+  &__exif {
+    display: flex;
+    margin: 0;
+    padding: 0;
+  }
+
+  &__exif-item {
+    display: flex;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    padding: 0 0.5rem;
+
+    & + &::before {
+      content: "•";
+      position: absolute;
+      right: 100%;
+      transform: translateX(50%);
+    }
+  }
+}
+
+.pswp {
+  $self: &;
+
+  &__image-caption {
+    background: rgba(0, 0, 0, 0.6);
+    font-size: 0.8rem;
+    color: #fff;
+    padding: 0.1rem;
+    position: absolute;
+    left: 50%;
+    bottom: 0.5rem;
+    transform: translateX(-50%);
   }
 }

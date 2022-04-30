@@ -3,10 +3,12 @@
     [
       "@babel/preset-env",
       {
+        "debug": true,
         "corejs": 3,
         "useBuiltIns": "usage"
       }
     ]
   ],
-  "plugins": ["@babel/plugin-transform-regenerator"]
+  "plugins": ["@babel/plugin-transform-regenerator"],
+  "exclude": []
 }

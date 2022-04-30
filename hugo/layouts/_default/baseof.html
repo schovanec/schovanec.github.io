@@ -7,10 +7,18 @@
     <title>{{ .Title }}</title>
 
     <link rel="stylesheet" href="{{ index .Site.Data.manifest "app.css" }}" />
+    {{ if .HasShortcode "gallery" }}
+      <link
+        rel="stylesheet"
+        href="{{ index .Site.Data.manifest "lightbox.css" }}"
+      />
+    {{ end }}
   </head>
   <body>
     <main id="content">{{- block "main" . }}{{- end }}</main>
 
-    <script src="{{ index .Site.Data.manifest "app.js" }}"></script>
+    <script src="{{ index .Site.Data.manifest "app.js" }}"></script> {{ if .HasShortcode "gallery" }}
+      <script src="{{ index .Site.Data.manifest "lightbox.js" }}"></script>
+    {{ end }}
   </body>
 </html>

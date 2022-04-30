@@ -9,6 +9,7 @@ module.exports = {
   devtool: "source-map",
   entry: {
     app: [path.resolve(SRC_ROOT, "js", "app.js")],
+    lightbox: [path.resolve(SRC_ROOT, "js", "lightbox.js")],
   },
   output: {
     path: path.resolve(HUGO_ROOT, "static/assets"),
@@ -22,6 +23,7 @@ module.exports = {
       {
         test: /\.js$/i,
         exclude: /node_modules/,
+        //exclude: /node_modules\/(?!(photoswipe)\/).*/,
         use: ["babel-loader"],
       },
       {
@@ -37,6 +39,13 @@ module.exports = {
           "resolve-url-loader",
           "sass-loader",
         ],
+      },
+      {
+        test: /\.(woff(2)?|eot|ttf|otf|svg)$/,
+        type: "asset",
+        generator: {
+          filename: "fonts/[name].[contenthash][ext][query]",
+        },
       },
     ],
   },

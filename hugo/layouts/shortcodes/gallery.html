@@ -1,3 +1,4 @@
+{{ .Page.Scratch.Set "useLightBox" true }}
 {{ $images := (.Page.Resources.ByType "image").Match (printf "%s/*" (.Get "folder")) }}
 {{ $thumbSize := site.Params.imageThumbSize }}
 {{ $fullSize := site.Params.imageFullSize }}
@@ -6,21 +7,58 @@
     {{ $size := cond (gt $original.Width $original.Height) $original.Width $original.Height }}
     {{ $thumbnail := $original }}
     {{ if gt $size $thumbSize }}
-      {{ $thumbnail := $original.Fit (printf "%dx%d" $thumbSize $thumbSize ) }}
+      {{ $thumbnail = $original.Fit (printf "%dx%d" $thumbSize $thumbSize ) }}
     {{ end }}
     {{ $fullImage := $original }}
     {{ if gt $size $fullSize }}
-      {{ $fullImage := $original.Fit (printf "%dx%d" $fullSize $fullSize ) }}
+      {{ $fullImage = $original.Fit (printf "%dx%d" $fullSize $fullSize ) }}
     {{ end }}
+    {{ $exif := $original.Exif }}
+    {{ $aspect := div (float $thumbnail.Width) (float $thumbnail.Height) }}
     <a
       href="{{ $fullImage.RelPermalink }}"
       class="photo-gallery__item"
       target="_blank"
       data-pswp-width="{{ $fullImage.Width }}"
       data-pswp-height="{{ $fullImage.Height }}"
-      style="--item-width: {{ $fullImage.Width }}; --item-height: {{ $fullImage.Height }}"
+      style="--item-aspect: {{ $aspect }}"
     >
-      <img class="photo-gallery__img" src="{{ $thumbnail.RelPermalink }}" />
+      <img
+        class="photo-gallery__img"
+        src="{{ $thumbnail.RelPermalink }}"
+        loading="lazy"
+        alt="Hello World!"
+      />
+      <div class="photo-gallery__lightbox-caption">
+        <ul class="photo-gallery__exif">
+          {{ if $exif.Tags.ExposureTime }}
+            <li class="photo-gallery__exif-item">
+              {{ $exif.Tags.ExposureTime }} sec
+            </li>
+          {{ end }}
+          {{ if $exif.Tags.FNumber }}
+            <li class="photo-gallery__exif-item">
+              <em>f</em>/{{ $exif.Tags.FNumber }}
+            </li>
+          {{ end }}
+          {{ if $exif.Tags.ISOSpeedRatings }}
+            <li class="photo-gallery__exif-item">
+              ISO
+              {{ $exif.Tags.ISOSpeedRatings }}
+            </li>
+          {{ end }}
+          {{ if $exif.Tags.Model }}
+            <li class="photo-gallery__exif-item">
+              {{ index site.Data.cameras $exif.Tags.Model | safeHTML | default $exif.Tags.Model }}
+            </li>
+          {{ end }}
+          {{ if $exif.Tags.LensModel }}
+            <li class="photo-gallery__exif-item">
+              {{ index site.Data.lenses $exif.Tags.LensModel | safeHTML | default $exif.Tags.LensModel }}
+            </li>
+          {{ end }}
+        </ul>
+      </div>
     </a>
   {{ end }}
 </div>

@@ -4,4 +4,4 @@ title = 'My New Hugo Site'
 
 [Params]
 imageThumbSize = 400
-imageFullSize = 4000
+imageFullSize = 3000

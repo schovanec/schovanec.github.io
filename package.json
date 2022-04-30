@@ -6,10 +6,13 @@
   "author": "Steve Chovanec <git@stevechovanec.com>",
   "license": "MIT",
   "private": true,
-  "browserslist": "> 1%",
+  "browserslist": [
+    "> 1%",
+    "ie 11"
+  ],
   "scripts": {
     "start": "run-p --print-label start:*",
-    "start:hugo": "hugo server -D --source hugo",
+    "start:hugo": "hugo server -D --source hugo --bind=0.0.0.0",
     "start:webpack": "webpack --mode=development --watch",
     "build": "run-s build:webpack build:hugo",
     "build:hugo": "hugo",
