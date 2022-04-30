@@ -1,4 +1,12 @@
-console.log("Hello World");
+import PhotoSwipeLightBox from "photoswipe/lightbox";
 
-const x = ["a", "b"];
-x.forEach((y) => console.log(y));
+import "../styles/app.scss";
+import "photoswipe/style.css";
+
+const lightbox = new PhotoSwipeLightBox({
+  gallery: ".photo-gallery",
+  children: "a",
+  pswpModule: () => import("photoswipe"),
+});
+
+lightbox.init();

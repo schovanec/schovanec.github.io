@@ -1,0 +1,26 @@
+{{ $images := (.Page.Resources.ByType "image").Match (printf "%s/*" (.Get "folder")) }}
+{{ $thumbSize := site.Params.imageThumbSize }}
+{{ $fullSize := site.Params.imageFullSize }}
+<div class="photo-gallery">
+  {{ range $original := $images }}
+    {{ $size := cond (gt $original.Width $original.Height) $original.Width $original.Height }}
+    {{ $thumbnail := $original }}
+    {{ if gt $size $thumbSize }}
+      {{ $thumbnail := $original.Fit (printf "%dx%d" $thumbSize $thumbSize ) }}
+    {{ end }}
+    {{ $fullImage := $original }}
+    {{ if gt $size $fullSize }}
+      {{ $fullImage := $original.Fit (printf "%dx%d" $fullSize $fullSize ) }}
+    {{ end }}
+    <a
+      href="{{ $fullImage.RelPermalink }}"
+      class="photo-gallery__item"
+      target="_blank"
+      data-pswp-width="{{ $fullImage.Width }}"
+      data-pswp-height="{{ $fullImage.Height }}"
+      style="--item-width: {{ $fullImage.Width }}; --item-height: {{ $fullImage.Height }}"
+    >
+      <img class="photo-gallery__img" src="{{ $thumbnail.RelPermalink }}" />
+    </a>
+  {{ end }}
+</div>

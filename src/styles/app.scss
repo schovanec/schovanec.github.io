@@ -1,7 +1,7 @@
-body {
-  background-color: mistyrose;
+@use "gallery";
 
-  p {
-    line-height: 2em;
-  }
+body {
+  margin: 0;
 }
+
+//@import "justifiedGallery/dist/css/justifiedGallery.css";

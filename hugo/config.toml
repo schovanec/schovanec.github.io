@@ -1,3 +1,7 @@
 baseURL = 'http://example.org/'
 languageCode = 'en-us'
 title = 'My New Hugo Site'
+
+[Params]
+imageThumbSize = 400
+imageFullSize = 4000

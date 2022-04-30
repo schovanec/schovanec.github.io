@@ -8,14 +8,12 @@ const HUGO_ROOT = path.resolve(__dirname, "hugo");
 module.exports = {
   devtool: "source-map",
   entry: {
-    app: [
-      path.resolve(SRC_ROOT, "js", "app.js"),
-      path.resolve(SRC_ROOT, "styles", "app.scss"),
-    ],
+    app: [path.resolve(SRC_ROOT, "js", "app.js")],
   },
   output: {
     path: path.resolve(HUGO_ROOT, "static/assets"),
     filename: "[name].[contenthash].js",
+    assetModuleFilename: "[name].[contenthash][ext][query]",
     publicPath: "/assets/",
     clean: true,
   },
@@ -36,6 +34,7 @@ module.exports = {
           MiniCssExtractPlugin.loader,
           "css-loader",
           "postcss-loader",
+          "resolve-url-loader",
           "sass-loader",
         ],
       },
