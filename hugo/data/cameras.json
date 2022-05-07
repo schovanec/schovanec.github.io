@@ -1,3 +1,12 @@
 {
-  "Canon EOS 5D Mark IV": "Canon 5D IV"
+  "Canon EOS 5D Mark IV": {
+    "name": "Canon 5D IV"
+  },
+  "Canon EOS R5": {
+    "name": "Canon EOS R5"
+  },
+  "DSC-RX100M3": {
+    "name": "Sony RX100 mk3",
+    "fixedLens": true
+  }
 }

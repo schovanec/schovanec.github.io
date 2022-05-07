@@ -1,4 +1,4 @@
-$default-image-height: 200px;
+$default-image-height: 250px;
 
 .photo-gallery {
   $self: &;
@@ -71,6 +71,7 @@ $default-image-height: 200px;
     display: none;
   }
 
+  /*
   &__exif {
     display: flex;
     margin: 0;
@@ -79,32 +80,54 @@ $default-image-height: 200px;
 
   &__exif-item {
     display: flex;
-    position: relative;
+    align-items: center;
+    display: inline;
     margin: 0;
     padding: 0;
     list-style: none;
-    padding: 0 0.5rem;
+    padding-right: 0.5ex;
 
-    & + &::before {
-      content: "•";
-      position: absolute;
-      right: 100%;
-      transform: translateX(50%);
+    & + & {
+      border-left: 1px solid white;
+      padding-left: 0.5ex;
     }
+
+    &:last-child {
+      padding-right: 0;
+    }
+
+    // &::after {
+    //   content: "|";
+    // }
+
+    // &:last-child::after {
+    //   content: none;
+    // }
+
+    // & + &::before {
+    //   content: "•";
+    // }
   }
+  */
 }
 
-.pswp {
-  $self: &;
+.pswp__image-caption {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
 
-  &__image-caption {
-    background: rgba(0, 0, 0, 0.6);
-    font-size: 0.8rem;
-    color: #fff;
-    padding: 0.1rem;
-    position: absolute;
-    left: 50%;
-    bottom: 0.5rem;
-    transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+
+  background: rgba(0, 0, 0, 0.3);
+  font-size: 0.8rem;
+  color: #fff;
+  padding: 0.5rem;
+  text-shadow: #000 0 0 2px;
+
+  p {
+    margin: 0;
   }
 }

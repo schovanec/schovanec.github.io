@@ -1,0 +1,45 @@
+{{ $input := . }}
+
+{{/* Build equipment string */}}
+{{ $equip := slice }}
+
+{{ $camera := dict }}
+{{ with .Tags.Model }}
+  {{ $camera = index site.Data.cameras . | default (dict "name" .) }}
+  {{ $equip = $equip | append ($camera.name | default .) }}
+{{ end }}
+
+{{ $fl := .Tags.FocalLength }}
+{{ if and .Tags.LensModel (not $camera.fixedLens) }}
+  {{ if $equip }}{{ $equip = $equip | append ", " }}{{ end }}
+  {{ $lens := .Tags.LensModel }}
+  {{ with index site.Data.lenses $lens | default (dict "name" $lens) }}
+    {{ $equip = $equip | append (.name | default $lens) }}
+    {{ if (and .zoom $fl) }}
+      {{ $equip = $equip | append (printf " @ %vmm" $fl) }}
+    {{ end }}
+  {{ end }}
+{{ else }}
+  {{ with $fl }}
+    {{ if $equip }}{{ $equip = $equip | append " @ " }}{{ end }}
+    {{ $equip = $equip | append (printf "%vmm" .) }}
+  {{ end }}
+{{ end }}
+
+{{/* Build exposure string */}}
+{{ $exposure := slice }}
+{{ with .Tags.ExposureTime }}
+  {{ $exposure = $exposure | append (printf "%v sec" .) }}
+{{ end }}
+{{ with .Tags.FNumber }}
+  {{ $exposure = $exposure | append (printf "f/%v" .) }}
+{{ end }}
+{{ with .Tags.ISOSpeedRatings }}
+  {{ $exposure = $exposure | append (printf "ISO %v" .) }}
+{{ end }}
+
+{{ with $equip }}{{ delimit . "" }}{{ end }}
+{{ with $exposure }}
+  {{ if $equip }}&mdash;{{ end }}
+  {{ delimit . ", " }}
+{{ end }}

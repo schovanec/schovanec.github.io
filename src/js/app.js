@@ -1,13 +1,13 @@
-import { canUseCssVariables } from "./utility/feature-detect";
+import AOS from "aos";
 
 import "../styles/app.scss";
+import "aos/dist/aos.css";
 
-// if (!canUseCssVariables()) {
-//   document.querySelectorAll(".photo-gallery__item").forEach((e) => {
-//     const width = parseInt(e.getAttribute("data-pswp-width"));
-//     const height = parseInt(e.getAttribute("data-pswp-height"));
-//     const aspect = width / height;
-//     e.style.width = `${aspect * 200}px`;
-//     e.style.flexGrow = aspect;
-//   });
-// }
+AOS.init({
+  duration: 1000,
+  once: true,
+});
+
+document.querySelectorAll("img[loading=lazy]").forEach((img) => {
+  img.addEventListener("load", () => AOS.refresh(), { once: true });
+});

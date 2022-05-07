@@ -1,0 +1,16 @@
+---
+title: Seattle Trip
+date: "2016-09-05"
+---
+
+## Museum of Flight
+
+{{< gallery match="museum-of-flight/*" >}}
+
+## Science Center
+
+{{< gallery match="science-center/*" >}}
+
+## The Art of the Brick
+
+{{< gallery match="art-of-the-brick/*" >}}

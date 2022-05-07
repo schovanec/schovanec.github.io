@@ -3,5 +3,5 @@ languageCode = 'en-us'
 title = 'My New Hugo Site'
 
 [Params]
-imageThumbSize = 400
+imageThumbSize = 600
 imageFullSize = 3000

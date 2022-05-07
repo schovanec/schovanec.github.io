@@ -2,9 +2,14 @@ import PhotoSwipeLightBox from "photoswipe/lightbox";
 import "photoswipe/style.css";
 
 const lightbox = new PhotoSwipeLightBox({
-  gallery: ".photo-gallery",
-  children: "a",
+  gallery: "#content",
+  children: ".photo-gallery__item",
   pswpModule: () => import("photoswipe"),
+  // paddingFn: (viewportSize, itemData, index) => {
+  //   //let element = lightbox.pswp.
+  //   console.log(lightbox);
+  //   return { top: 0, bottom: 0, left: 0, right: 0 };
+  // },
 });
 
 lightbox.on("uiRegister", () => {
