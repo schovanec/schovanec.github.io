@@ -1,6 +1,7 @@
 ---
 title: Seattle Trip
 date: "2016-09-05"
+summary: "My trip to Seattle in September 2016."
 resources:
   - src: "museum-of-flight/*"
     title: The Museum of Flight

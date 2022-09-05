@@ -24,23 +24,24 @@
     {{ end }}
     {{ $exif := $original.Exif }}
     {{ $aspect := div (float $thumbnail.Width) (float $thumbnail.Height) }}
-    <a
-      href="{{ $fullImage.RelPermalink }}"
-      class="photo-gallery__item"
-      target="_blank"
-      data-pswp-width="{{ $fullImage.Width }}"
-      data-pswp-height="{{ $fullImage.Height }}"
-      style="--item-aspect: {{ $aspect }}"
-    >
-      <img
-        class="photo-gallery__img"
-        src="{{ $thumbnail.RelPermalink }}"
-        loading="lazy"
-      />
-      <div class="photo-gallery__lightbox-caption">
+    <div class="photo-gallery__item" style="--item-aspect: {{ $aspect }}">
+      <a
+        href="{{ $fullImage.RelPermalink }}"
+        class="photo-gallery__link"
+        target="_blank"
+        data-pswp-width="{{ $fullImage.Width }}"
+        data-pswp-height="{{ $fullImage.Height }}"
+      >
+        <img
+          class="photo-gallery__img"
+          src="{{ $thumbnail.RelPermalink }}"
+          loading="lazy"
+        />
+      </a>
+      <div class="photo-gallery__caption">
         {{ if not (eq $original.Name $original.Title) }}
           <p class="photo-gallery__title">
-            {{ $original.Title | markdownify }}
+            {{ $page.RenderString $original.Title }}
           </p>
         {{ else if $exif.Tags.ImageDescription }}
           <p class="photo-gallery__title">
@@ -51,6 +52,6 @@
           <p class="photo-gallery__exif">{{ . }}</p>
         {{ end }}
       </div>
-    </a>
+    </div>
   {{ end }}
 </div>

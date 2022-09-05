@@ -5,11 +5,6 @@ const lightbox = new PhotoSwipeLightBox({
   gallery: "#content",
   children: ".photo-gallery__item",
   pswpModule: () => import("photoswipe"),
-  // paddingFn: (viewportSize, itemData, index) => {
-  //   //let element = lightbox.pswp.
-  //   console.log(lightbox);
-  //   return { top: 0, bottom: 0, left: 0, right: 0 };
-  // },
 });
 
 lightbox.on("uiRegister", () => {
@@ -25,7 +20,7 @@ lightbox.on("uiRegister", () => {
         let captionHTML = "";
         if (currentSlideElement) {
           const hiddenCaption = currentSlideElement.querySelector(
-            ".photo-gallery__lightbox-caption"
+            ".photo-gallery__caption"
           );
           if (hiddenCaption) {
             captionHTML = hiddenCaption.innerHTML;

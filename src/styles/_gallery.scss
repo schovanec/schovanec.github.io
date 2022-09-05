@@ -67,48 +67,9 @@ $default-image-height: 250px;
     }
   }
 
-  &__lightbox-caption {
+  &__caption {
     display: none;
   }
-
-  /*
-  &__exif {
-    display: flex;
-    margin: 0;
-    padding: 0;
-  }
-
-  &__exif-item {
-    display: flex;
-    align-items: center;
-    display: inline;
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    padding-right: 0.5ex;
-
-    & + & {
-      border-left: 1px solid white;
-      padding-left: 0.5ex;
-    }
-
-    &:last-child {
-      padding-right: 0;
-    }
-
-    // &::after {
-    //   content: "|";
-    // }
-
-    // &:last-child::after {
-    //   content: none;
-    // }
-
-    // & + &::before {
-    //   content: "•";
-    // }
-  }
-  */
 }
 
 .pswp__image-caption {
@@ -129,5 +90,9 @@ $default-image-height: 250px;
 
   p {
     margin: 0;
+  }
+
+  a {
+    color: inherit;
   }
 }

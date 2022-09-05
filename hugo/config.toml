@@ -1,6 +1,8 @@
 baseURL = 'http://example.org/'
 languageCode = 'en-us'
-title = 'My New Hugo Site'
+title = 'Steve Chovanec'
+copyright = 'Copyright &copy; Steve Chovanec'
+sectionPagesMenu = 'main'
 
 [Params]
 imageThumbSize = 600

@@ -1,10 +1,33 @@
 {{ define "main" }}
-  <header>
-    <h1>{{ .Title }}</h1>
-    <h2>{{ .Date.Format "Jan 2, 2006" }}</h2>
-  </header>
+  <div class="container">
+    <div class="post__header">
+      <ol class="breadcrumbs">
+        {{- $url := replace .Parent.Permalink site.BaseURL "" }}
+        <li class="breadcrumbs__item">
+          <a href="/">Home</a>
+        </li>
+        {{ $segments := slice }}
+        {{- range $index, $element := split $url "/" }}
+          {{- $segments = $segments | append $element }}
+          {{- $breadcrumbPage := site.GetPage (delimit $segments "/" | string) -}}
+          {{- if (and ($breadcrumbPage) (gt (len .) 0)) }}
+            <li class="breadcrumbs__item">
+              <a href="{{ $breadcrumbPage.RelPermalink }}">
+                {{ $breadcrumbPage.Name }}
+              </a>
+            </li>
+          {{- end }}
+        {{- end -}}
+      </ol>
 
-  <div>
-    {{ .Content }}
+      <h1 class="post__title">{{ .Title }}</h1>
+      <div class="post__byline">{{ .Date.Format "January 2, 2006" }}</div>
+    </div>
+  </div>
+
+  <div class="post__content">
+    <div class="container">
+      {{ .Content }}
+    </div>
   </div>
 {{ end }}

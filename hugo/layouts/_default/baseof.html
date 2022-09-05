@@ -15,9 +15,11 @@
     {{ end }}
   </head>
   <body>
+    {{ partial "site-header" }}
     <main id="content">{{- block "main" . }}{{- end }}</main>
-
-    <script src="{{ index .Site.Data.manifest "app.js" }}"></script> {{ if .HasShortcode "gallery" }}
+    {{ partial "site-footer" }}
+    <script src="{{ index .Site.Data.manifest "app.js" }}"></script>
+    {{ if .HasShortcode "gallery" }}
       <script src="{{ index .Site.Data.manifest "lightbox.js" }}"></script>
     {{ end }}
   </body>

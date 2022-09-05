@@ -21,3 +21,5 @@ hugo.linux
 
 static/assets
 data/manifest.json
+
+content/**/*.jpg

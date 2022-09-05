@@ -1,0 +1,8 @@
+@use "sass:color";
+
+$clr-neutral-light: #efefef;
+$clr-neutral-dark: #323232;
+
+$clr-neutral-mid: color.scale($clr-neutral-dark, $lightness: 85%);
+
+$clr-border: color.scale($clr-neutral-dark, $lightness: 50%);
