@@ -8,7 +8,7 @@ resources:
   - src: "science-center/*"
     title: Pacific Science Center
   - src: "art-of-the-brick/*"
-    title: "[The Art of The Brick Exhibit](https://www.google.ca) at the Pacific Science Center"
+    title: "[The Art of The Brick Exhibit](https://artofthebrickexhibit.com/) at the Pacific Science Center"
 ---
 
 {{< gallery >}}

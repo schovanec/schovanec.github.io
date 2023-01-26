@@ -1,0 +1,13 @@
+{{/*  <a
+  href="{{ .Destination }}"
+  {{ with .Title }}title="{{ . }}"{{ end }}
+  {{ if strings.HasPrefix .Destination "http" }}target="_blank"{{ end }}
+  >{{ .Text }}</a
+>  */}}
+{{ $url := urls.Parse .Destination }}
+<a
+  href="{{ .Destination }}"
+  {{ with .Title }}title="{{ . }}"{{ end }}
+  {{ if $url.Scheme }}target="_blank"{{ end }}
+  >{{ .Text }}</a
+>

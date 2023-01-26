@@ -3,6 +3,9 @@
 $clr-neutral-light: #efefef;
 $clr-neutral-dark: #323232;
 
-$clr-neutral-mid: color.scale($clr-neutral-dark, $lightness: 85%);
+//$clr-neutral-mid: color.scale($clr-neutral-dark, $lightness: 85%);
 
-$clr-border: color.scale($clr-neutral-dark, $lightness: 50%);
+//$clr-border: color.scale($clr-neutral-dark, $lightness: 50%);
+
+$clr-border-light: color.scale($clr-neutral-dark, $lightness: 50%);
+$clr-border-dark: color.scale($clr-neutral-light, $blackness: 50%);
