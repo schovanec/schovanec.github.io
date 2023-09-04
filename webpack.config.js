@@ -3,7 +3,7 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const { WebpackManifestPlugin } = require("webpack-manifest-plugin");
 
 const SRC_ROOT = path.resolve(__dirname, "src");
-const HUGO_ROOT = path.resolve(__dirname, "hugo");
+const HUGO_ROOT = path.resolve(__dirname);
 
 module.exports = {
   devtool: "source-map",

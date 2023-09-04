@@ -12,7 +12,7 @@
   ],
   "scripts": {
     "start": "run-p --print-label start:*",
-    "start:hugo": "hugo server -D --source hugo --bind=0.0.0.0",
+    "start:hugo": "hugo server -D",
     "start:webpack": "webpack --mode=development --watch",
     "build": "run-s build:webpack build:hugo",
     "build:hugo": "hugo",
