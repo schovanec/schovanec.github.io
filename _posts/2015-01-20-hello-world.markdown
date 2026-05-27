@@ -9,5 +9,3 @@ Since I'm a developer I had originally thought of building my own blog system us
 Hopefully I'll have something more interesting to post shortly, but for now I'll share a photo:
 
 ![Pollenating the flowers.](//assets.stevechovanec.com/images/2014/2015-01-20-pollenating.jpg)
-
-Test
